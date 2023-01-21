@@ -12,7 +12,8 @@ import { register } from "./controllers/auth.js";
 import { verifyToken } from "./middleware/auth.js";
 import { createPost } from "./controllers/posts.js";
 import authRoutes from "./routes/auth.js";
-import userRoutes from "./routes/user.js";
+import userRoutes from "./routes/users.js";
+import postRoutes from "./routes/posts.js";
 
 /* CONFIGURATIONS */
 const __filename = fileURLToPath(import.meta.url);
@@ -46,7 +47,7 @@ app.post("/posts", verifyToken, upload.single("picture"), createPost);
 /* ROUTES */
 app.use("/auth", authRoutes);
 app.use("/users", userRoutes);
-// app.use("/posts", postRoutes);
+app.use("/posts", postRoutes);
 
 /* MONGOOSE SETUP */
 const PORT = process.env.PORT || 8000;
