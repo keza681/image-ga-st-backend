@@ -1,1 +1,1 @@
-# image-ga-st-be
+# image-gallery app backend
